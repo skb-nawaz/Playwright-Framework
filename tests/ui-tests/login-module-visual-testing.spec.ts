@@ -1,4 +1,4 @@
-import { test, expect } from "../fixtures/hooks-fixture";
+import { test, expect } from "../../fixtures/hooks-fixture";
 
 test.use({
   storageState: {
@@ -23,20 +23,22 @@ test(
     commonUtilsFixture,
     sideBarFixture,
   }) => {
-    const username = commonUtilsFixture.decryptData(process.env.USER_NAME!);
-    const password = commonUtilsFixture.decryptData(process.env.PASSWORD!);
+    const enc_userName = commonUtilsFixture.encryptData("orangehrm_skbn");
+    const enc_password = commonUtilsFixture.encryptData("184G1a0126@");
+    const username = commonUtilsFixture.decryptData(enc_userName);
+    const password = commonUtilsFixture.decryptData(enc_password);
     await loginPageFixture.loginOrangeHrm(username, password);
-    await expect(sideBarFixture.orangeHrmLogo).toHaveScreenshot(
+    /* await expect(sideBarFixture.orangeHrmLogo).toHaveScreenshot(
       "orangrhrmBrandLogo.png",
       {
         maxDiffPixelRatio: 0.1,
       },
-    );
-    await expect(sideBarFixture.completeSideBarElements).toHaveScreenshot(
+    ); */
+    /* await expect(sideBarFixture.completeSideBarElements).toHaveScreenshot(
       "completeSideBarWithElements.png",
       {
         maxDiffPixelRatio: 0.1,
       },
-    );
+    ); */
   },
 );

@@ -1,4 +1,4 @@
-import { test as baseTest } from "./common-fixture";
+import { test as baseTest } from "../fixtures/common-fixture";
 import type LoginPage from "../pages/LoginPage";
 import UserPage from "../pages/UserPage";
 
@@ -8,11 +8,17 @@ type HooksFixtureType = {
 };
 
 export const test = baseTest.extend<HooksFixtureType>({
-  gotoUrlFixture: async ({ loginPageFixture }, use) => {
+  gotoUrlFixture: async (
+    { loginPageFixture }: { loginPageFixture: LoginPage },
+    use: (value?: any) => Promise<void>,
+  ) => {
     await loginPageFixture.gotoOrangeHrm();
     await use();
   },
-  logoutFixture: async ({ userPageFixture }, use) => {
+  logoutFixture: async (
+    { userPageFixture }: { userPageFixture: UserPage },
+    use: (value?: any) => Promise<void>,
+  ) => {
     await use();
     await userPageFixture.clickOnLogout();
   },

@@ -1,0 +1,33 @@
+{
+  "content-type": "application/json; charset=utf-8",
+  "create_booking": {
+    "firstname": "Wish",
+    "lastname": "Infi",
+    "totalprice": 111,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2018-01-01",
+      "checkout": "2019-01-01"
+    },
+    "additionalneeds": "Breakfast"
+  },
+  "auth_details": {
+    "username": "U2FsdGVkX1/K1p3jqjzfv58w2THpCgJyZKOnYOwqsMA=",
+    "password": "U2FsdGVkX1+uigwvk2Z2z18WHohEnsWmBEfKQ+wSxlo="
+  },
+  "update_data": {
+    "firstname": "NAWAZ",
+    "lastname": "SKB",
+    "totalprice": 111,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2018-01-01",
+      "checkout": "2019-01-01"
+    },
+    "additionalneeds": "Breakfast"
+  },
+  "update_partial_booking": {
+    "firstname": "SKBBBB",
+    "lastname": "NNNAWAAAZ"
+  }
+}

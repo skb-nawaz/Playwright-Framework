@@ -1,5 +1,5 @@
-import { test, expect } from "../fixtures/hooks-fixture";
-import empData from "../data/pim-module-employee-data.json";
+import { test, expect } from "../../fixtures/hooks-fixture";
+import empData from "../../data/ui-data/pim-module-employee-data.json";
 
 test(
   "Verify that a new Employee successfully created under Pim module",

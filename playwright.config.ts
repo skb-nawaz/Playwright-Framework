@@ -31,7 +31,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [["html", { open: "always" }]],
+  reporter: [["html", { open: "never" }]],
   expect: {
     timeout: 30000,
   },
@@ -44,6 +44,15 @@ export default defineConfig({
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
     video: "retain-on-failure",
+    //it is for api test right there is no point of putting it here
+    baseURL: process.env.API_BASE_URL,
+    //common https headers temporary basics
+    extraHTTPHeaders: {
+      Accept: "application/json",
+      "content-Type": "application/json",
+      "X-Pinggy-No-Screen": "1",
+      //Authorization: "Basic YWRtaW46cGFzc3dvcmQxMjM=",
+    },
   },
 
   /* Configure projects for major browsers */
@@ -74,6 +83,10 @@ export default defineConfig({
         storageState: "./PlaywrightAuthFile/.auth/auth.json",
       },
       dependencies: ["setup"],
+    },
+    {
+      name: "apiTest",
+      testDir: "./tests/api-tests",
     },
 
     /* Test against mobile viewports. */

@@ -1,5 +1,5 @@
-import { test, expect } from "../fixtures/hooks-fixture";
-import loginModuleData from "../data/login-module-data.json";
+import { test, expect } from "../../fixtures/hooks-fixture";
+import loginModuleData from "../../data/ui-data/login-module-data.json";
 
 test.use({
   storageState: {
@@ -20,6 +20,7 @@ test(
 
   async ({ gotoUrlFixture, loginPageFixture, commonUtilsFixture }) => {
     const userName = commonUtilsFixture.decryptData(process.env.USER_NAME!);
+    console.log(userName);
     await loginPageFixture.loginOrangeHrm(
       userName,
       loginModuleData.invalid_password.password,
@@ -82,4 +83,3 @@ test.describe(
     );
   },
 );
-
