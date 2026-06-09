@@ -23,3 +23,4 @@ steps:
 
 - script: SECRET_KEY=skbnaewa npm run test_dev
   displayName: 'Run tests'
+
